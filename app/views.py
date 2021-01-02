@@ -50,11 +50,18 @@ def getdataset():
 def getDataFromDB():
     dataset = collection.find({})
     w=[]
+    all=0
+    size=10# 显示数量topN
     for x in dataset:
         # print(type(x))
+
+        if all==size+1:
+            break
         name=x['name']
         rank=x['rank']
         k=[rank,name]
         w.append(k)
+        all+=1
+        
     # print(w)
     return w
