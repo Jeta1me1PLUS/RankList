@@ -42,7 +42,7 @@ var option = {
   dataset: datas,
   grid: { containLabel: true },
   xAxis: {
-    name: "amount",
+    // name: "amount",
     splitLine: { show: false },
     axisLine: { show: false },
     axisTick: { show: false },
@@ -56,8 +56,8 @@ var option = {
     axisLabel: {
       margin: 10,
       textStyle: {
-        color: "#999",
-        fontSize: 20,
+        color: "black",
+        fontSize: 25,
       },
     },
   },

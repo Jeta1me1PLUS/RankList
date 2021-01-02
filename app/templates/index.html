@@ -8,35 +8,50 @@
     <script src="../static/js/jquery.min.js"></script>
   </head>
   <body>
-    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="width: 1000px; height: 600px"></div>
+    <table width="500" border="0"></table>
+    <tr>
+      <td colspan="2" style="background-color: #ffa500">
+        <h1 style="center">排行榜</h1>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <div id="maintable" style="width: 400px; height: 600px; float: left;"></div>
+    </td>
+    <td>
+      <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 400px; height: 600px; float: right"></div>
 
-    <div id="dataid" dataset="{{dataset}}" style="display: none"></div>
+    <!-- <div id="dataid" dataset="{{dataset}}" style="display: none"></div> -->
     <!-- <script src="copytoclp.js"></script> -->
     <script src="../static/js/Mycharts.js"></script>
     <!-- {{dataset}} -->
     <script type="text/javascript">
-      // 使用刚指定的配置项和数据显示图表。
+        // 使用刚指定的配置项和数据显示图表。
 
-      var dataset = document.getElementById("dataid").getAttribute("dataset");
-      var myChart = echarts.init(document.getElementById("main"));
-      //排序
-      function compare(a, b) {
-        var val1 = a[0];
-        var val2 = b[0];
-        return val1 - val2;
-      }
-      option.dataset.source.sort(compare);
-      //   console.log(option.dataset.source[0][0]);
-      // datas.source;
-      // console.log(option.dataset);
-      // console.log(option.dataset);
-      // datas.source:dataset;
+        // var dataset = document.getElementById("dataid").getAttribute("dataset");
+        var myChart = echarts.init(document.getElementById("main"));
+        //排序
+        function compare(a, b) {
+          var val1 = a[0];
+          var val2 = b[0];
+          return val1 - val2;
+        }
+        option.dataset.source.sort(compare);
+        //   console.log(option.dataset.source[0][0]);
+        // datas.source;
+        // console.log(option.dataset);
+        // console.log(option.dataset);
+        // datas.source:dataset;
 
-      myChart.setOption(option);
-      //点击复制
-      //copyX复制x轴，Y=>y轴
-      //   myChart.on("click", copyX);
+        myChart.setOption(option);
+        //点击复制
+        //copyX复制x轴，Y=>y轴
+        //   myChart.on("click", copyX);
+      
     </script>
+    </td></tr>
+    
+    </table>
   </body>
 </html>

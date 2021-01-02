@@ -18,7 +18,6 @@
     <link rel="stylesheet" type="text/css" href="../static/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/demo.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/component.css" />
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
     <script src="../static/js/echarts.min.js"></script>
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/modernizr.custom.js"></script>
@@ -53,13 +52,44 @@
         <li></li>
       </ul>
       <header>
-        <div class="form-box" style="margin-left: auto">
-          <form action="/add" method="post">
-            <input type="text" name="rank" placeholder="分数" />
-            <input type="text" name="name" placeholder="姓名" />
-            <input type="submit" name="" value="增加" />
-          </form>
-        </div>
+        <div
+          id="main"
+          style="
+            width: 400px;
+            height: 600px;
+            float: right;
+            background-color: rgba(255, 255, 255, 0.733);
+          "
+        ></div>
+
+        <!-- <div id="dataid" dataset="{{dataset}}" style="display: none"></div> -->
+        <!-- <script src="copytoclp.js"></script> -->
+        <script src="../static/js/Mycharts.js"></script>
+        <!-- {{dataset}} -->
+        <script type="text/javascript">
+          // 使用刚指定的配置项和数据显示图表。
+
+          // var dataset = document.getElementById("dataid").getAttribute("dataset");
+          var myChart = echarts.init(document.getElementById("main"));
+          //排序
+          function compare(a, b) {
+            var val1 = a[0];
+            var val2 = b[0];
+            return val1 - val2;
+          }
+          option.dataset.source.sort(compare);
+          //   console.log(option.dataset.source[0][0]);
+          // datas.source;
+          // console.log(option.dataset);
+          // console.log(option.dataset);
+          // datas.source:dataset;
+
+          myChart.setOption(option);
+          //点击复制
+          //copyX复制x轴，Y=>y轴
+          //   myChart.on("click", copyX);
+        </script>
+        <div style="text-align: center; clear: both"></div>
       </header>
     </div>
     <!-- /container -->

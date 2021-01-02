@@ -10,17 +10,26 @@ collection= db.rankdatas
 #     'name':'male',     
 #     } 
 # result= collection.insert(dataset)
-
-
 @app.route('/')
 @app.route('/index')
+def index2():
+    # dataset=getDataFromDB()
+    # print(dataset)
+    return render_template("index2.html")
+
+
+@app.route('/index2')
 def index():
     dataset=getDataFromDB()
     print(dataset)
     return render_template("index.html",dataset=dataset)
+
+
 @app.route('/edit')
 def editrank():
     return "Hello,World!"
+
+
 @app.route('/add', methods=['GET','POST']) 
 def addrank(): 
     rank=request.form.get('rank')
@@ -36,6 +45,7 @@ def addrank():
 @app.route('/getdataset',methods=['get','POST'])
 def getdataset():
     return jsonify({'source':getDataFromDB()})
+
 
 def getDataFromDB():
     dataset = collection.find({})
