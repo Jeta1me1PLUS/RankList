@@ -1,3 +1,16 @@
+// console.log(dataset);
+var datas = {};
+$.ajax({
+  type: "POST",
+  url: "/getdataset",
+  datatype: "json",
+  async: false,
+  success: function (req) {
+    // console.log("111222");
+    datas = req;
+  },
+});
+console.log(datas);
 var labelSetting = {
   normal: {
     show: true,
@@ -9,19 +22,19 @@ var labelSetting = {
   },
 };
 var maxData = 150;
-var datas = {
-  source: [
-    [87, "王安"],
-    [89, "赵"],
-    [74, "前"],
-    [89, "孙"],
-    [68, "李"],
-    [50, "停停停"],
-    [19, "呃呃呃"],
-    [10, "棒棒棒"],
-    [32, "啊啊啊"],
-  ],
-};
+// var datas = {
+//   source: [
+//     [87, "王安"],
+//     [89, "赵"],
+//     [74, "前"],
+//     [89, "孙"],
+//     [68, "李"],
+//     [50, "停停停"],
+//     [19, "呃呃呃"],
+//     [10, "棒棒棒"],
+//     [32, "啊啊啊"],
+//   ],
+// };
 var option = {
   // title: {
   // text: "爬虫数量提交排行榜",

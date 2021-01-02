@@ -5,14 +5,20 @@
     <title>排行榜</title>
     <!-- 引入 echarts.js -->
     <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/jquery.min.js"></script>
   </head>
   <body>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="main" style="width: 1000px; height: 600px"></div>
+
+    <div id="dataid" dataset="{{dataset}}" style="display: none"></div>
     <!-- <script src="copytoclp.js"></script> -->
     <script src="../static/js/Mycharts.js"></script>
+    <!-- {{dataset}} -->
     <script type="text/javascript">
       // 使用刚指定的配置项和数据显示图表。
+
+      var dataset = document.getElementById("dataid").getAttribute("dataset");
       var myChart = echarts.init(document.getElementById("main"));
       //排序
       function compare(a, b) {
@@ -22,6 +28,11 @@
       }
       option.dataset.source.sort(compare);
       //   console.log(option.dataset.source[0][0]);
+      // datas.source;
+      // console.log(option.dataset);
+      // console.log(option.dataset);
+      // datas.source:dataset;
+
       myChart.setOption(option);
       //点击复制
       //copyX复制x轴，Y=>y轴
